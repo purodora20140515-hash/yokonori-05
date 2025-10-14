@@ -2,25 +2,154 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>第5期Z式プロドラ横乗りインストラクター養成講座 受講記録</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; background-color: #f4f4f9; }
-        .container { max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #007bff; border-bottom: 3px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
-        h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #333; }
-        .question-group { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        label::after { content: " *"; color: red; } 
-        input[type="text"], input[type="email"], input[type="date"], textarea, select { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .rating label { font-weight: normal; margin-right: 15px; display: inline-block; }
-        .submit-btn, .print-btn { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-right: 10px; }
+        /* -------------------------------------- */
+        /* スマートフォン向け最適化スタイル */
+        /* -------------------------------------- */
+
+        body { 
+            font-family: sans-serif; 
+            padding: 15px; /* 全体のパディングを調整 */
+            background-color: #f4f4f9; 
+            font-size: 17px; /* 基本フォントサイズを大きく */
+            line-height: 1.6; /* 行間を広げて読みやすく */
+            color: #333; /* 文字色を濃く */
+        }
+        .container { 
+            max-width: 650px; /* PCでの最大幅を少し広げた */
+            margin: 0 auto; /* 中央寄せ */
+            background: #fff; 
+            padding: 20px; /* パディングを調整 */
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+        }
+        h1 { 
+            color: #007bff; 
+            border-bottom: 3px solid #007bff; 
+            padding-bottom: 15px; 
+            margin-bottom: 30px; /* マージンを大きく */
+            font-size: 1.5em; /* 見出しを大きく */
+            line-height: 1.3;
+        }
+        h2 { 
+            border-bottom: 2px solid #007bff; 
+            padding-bottom: 10px; 
+            color: #333; 
+            margin-top: 30px; /* マージンを大きく */
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .question-group { 
+            margin-bottom: 25px; /* 質問グループ間のスペースを広げる */
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            background-color: #ffffff;
+        }
+        label { 
+            display: block; 
+            margin-bottom: 8px; /* ラベルと入力欄の間隔を広げる */
+            font-weight: bold; 
+            font-size: 1.05em; /* ラベルの文字サイズを少し大きく */
+        }
+        label::after { 
+            content: " *"; 
+            color: red; 
+        } 
+        /* 入力フィールドの幅を100%に、パディングを調整してタッチしやすく */
+        input[type="text"], input[type="email"], input[type="date"], textarea, select { 
+            width: 100%; /* 幅を100%に */
+            padding: 12px; /* パディングを増やしてタッチしやすく */
+            border: 1px solid #ccc; 
+            border-radius: 6px; /* 角を丸く */
+            box-sizing: border-box; 
+            font-size: 1em; 
+            line-height: 1.5;
+        }
+        textarea {
+             min-height: 100px; /* テキストエリアの最小高さを設定 */
+        }
         
-        .submit-btn { background-color: #f39c12; color: white; } 
-        .submit-btn:hover { background-color: #e67e22; }
-        .print-btn { background-color: #007bff; color: white; } 
-        .print-btn:hover { background-color: #0056b3; }
-        
-        .alert { background-color: #fff3cd; border-left: 6px solid #ffc107; padding: 10px; margin-top: 15px; font-weight: bold; }
+        /* ラジオボタン（評価）のモバイル最適化 */
+        .rating {
+            display: flex; /* 横並びに */
+            flex-wrap: wrap; /* スマホで入りきらない場合は折り返す */
+            gap: 10px 5px; /* ラジオボタン間の間隔 */
+            margin-top: 10px;
+        }
+        .rating label { 
+            font-weight: normal; 
+            display: inline-flex; /* ラベル全体をタッチ領域にする */
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 10px;
+            margin-right: 5px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            line-height: 1;
+        }
+        .rating input[type="radio"] {
+            margin-right: 5px;
+            width: auto; /* ラジオボタン自体の幅は自動 */
+        }
+        /* 選択されたラジオボタンのスタイルを分かりやすく */
+        .rating input[type="radio"]:checked + label {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        /* ボタンのスタイル調整 */
+        .submit-btn, .print-btn { 
+            width: 100%; /* スマホでは幅いっぱいに */
+            padding: 15px; /* タッチしやすいサイズに */
+            margin-top: 15px; 
+            font-size: 1.1em; /* ボタンの文字を大きく */
+            margin-right: 0; /* 右マージンを解除 */
+        }
+        .submit-btn { 
+            background-color: #f39c12; 
+        } 
+        .print-btn { 
+            background-color: #007bff; 
+        } 
+        /* ボタンを積み重ねるための修正 */
+        .button-group {
+            display: flex;
+            flex-direction: column; /* 縦に積み重ねる */
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* アラートメッセージのスタイル調整 */
+        .alert { 
+            background-color: #fff3cd; 
+            border-left: 6px solid #ffc107; 
+            padding: 15px; 
+            margin-top: 25px; 
+            font-weight: bold; 
+            font-size: 0.95em;
+        }
+
+        /* 画面幅が広い場合（PCなど）はボタンを横並びに戻す */
+        @media (min-width: 600px) {
+            .button-group {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 10px;
+            }
+            .submit-btn, .print-btn {
+                width: auto; /* 幅を自動調整 */
+                margin-top: 0;
+            }
+            .rating label {
+                padding: 10px 15px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -46,7 +175,7 @@
         </div>
         
         <div class="question-group">
-            <label for="lecture_title">今回の講義タイトル:</label>
+            <label for="lecture_title">今回の講義タイトル（件名に含めます）:</label>
             <select id="lecture_title" name="講義タイトル" required>
                 <option value="" disabled selected>講義を選択してください</option>
                 <option value="【第1回】10/21 我が国の物流革新に向けた取組みの動向">【第1回】10/21 我が国の物流革新に向けた取組みの動向</option>
@@ -88,22 +217,22 @@
         <div class="question-group">
             <p>今回の講義内容に満足していますか。</p>
             <div class="rating">
-                <input type="radio" id="q4_5" name="4_満足度" value="5" required><label for="q4_5">5 (非常に満足)</label>
-                <input type="radio" id="q4_4" name="4_満足度" value="4"><label for="q4_4">4</label>
-                <input type="radio" id="q4_3" name="4_満足度" value="3"><label for="q4_3">3</label>
-                <input type="radio" id="q4_2" name="4_満足度" value="2"><label for="q4_2">2</label>
-                <input type="radio" id="q4_1" name="4_満足度" value="1"><label for="q4_1">1 (不満)</label>
+                <input type="radio" id="q4_5" name="4_満足度" value="5" required hidden><label for="q4_5">5 (非常に満足)</label>
+                <input type="radio" id="q4_4" name="4_満足度" value="4" hidden><label for="q4_4">4</label>
+                <input type="radio" id="q4_3" name="4_満足度" value="3" hidden><label for="q4_3">3</label>
+                <input type="radio" id="q4_2" name="4_満足度" value="2" hidden><label for="q4_2">2</label>
+                <input type="radio" id="q4_1" name="4_満足度" value="1" hidden><label for="q4_1">1 (不満)</label>
             </div>
         </div>
 
         <div class="question-group">
             <p>講師の説明は分かりやすかったですか。</p>
             <div class="rating">
-                <input type="radio" id="q5_5" name="5_講師評価" value="5" required><label for="q5_5">5 (非常に分かりやすい)</label>
-                <input type="radio" id="q5_4" name="5_講師評価" value="4"><label for="q5_4">4</label>
-                <input type="radio" id="q5_3" name="5_講師評価" value="3"><label for="q5_3">3</label>
-                <input type="radio" id="q5_2" name="5_講師評価" value="2"><label for="q5_2">2</label>
-                <input type="radio" id="q5_1" name="5_講師評価" value="1"><label for="q5_1">1 (分かりにくい)</label>
+                <input type="radio" id="q5_5" name="5_講師評価" value="5" required hidden><label for="q5_5">5 (非常に分かりやすい)</label>
+                <input type="radio" id="q5_4" name="5_講師評価" value="4" hidden><label for="q5_4">4</label>
+                <input type="radio" id="q5_3" name="5_講師評価" value="3" hidden><label for="q5_3">3</label>
+                <input type="radio" id="q5_2" name="5_講師評価" value="2" hidden><label for="q5_2">2</label>
+                <input type="radio" id="q5_1" name="5_講師評価" value="1" hidden><label for="q5_1">1 (分かりにくい)</label>
             </div>
         </div>
         
@@ -111,24 +240,26 @@
         <h2>振り返り</h2>
         <div class="question-group">
             <label for="reflection_text">本日の講義全体を通して、特に心に残った点、新たに気づいたこと、感想などを具体的にお聞かせください。</label>
-            <textarea id="reflection_text" name="5_振り返り" rows="6" required></textarea>
+            <textarea id="reflection_text" name="5_振り返り" rows="8" required></textarea>
         </div>
 
 
         <h2>2. 今後の行動・活用 (自由記述)</h2>
         <div class="question-group">
             <label for="action_text">今回の講義で学んだことを活かして、現場の指導で具体的に「実践したい」「変えていきたい」と思うことは何ですか。</label>
-            <textarea id="action_text" name="6_実践したいこと" rows="5" required></textarea>
+            <textarea id="action_text" name="6_実践したいこと" rows="6" required></textarea>
         </div>
 
         <h2>3. 運営・その他 (自由記述)</h2>
         <div class="question-group">
             <label for="feedback">今回の講義全体へのご意見・ご要望、その他ご感想などがあればご自由にご記入ください。</label>
-            <textarea id="feedback" name="7_ご意見・ご要望" rows="4"></textarea>
+            <textarea id="feedback" name="7_ご意見・ご要望" rows="5"></textarea>
         </div>
         
-        <button type="button" class="submit-btn" onclick="copyAndOpenMail()">メール本文をコピー＆送信</button>
-        <button type="button" class="print-btn" onclick="printRecord()">受講記録を出力</button>
+        <div class="button-group">
+            <button type="button" class="submit-btn" onclick="copyAndOpenMail()">メール本文をコピー＆送信</button>
+            <button type="button" class="print-btn" onclick="printRecord()">受講記録を出力</button>
+        </div>
         
         <div class="alert">
             「メール本文をコピー＆送信」ボタンを押すと、本文が自動でコピーされ、メールが開きます。<br>
@@ -168,10 +299,23 @@
         const titleElement = document.getElementById('lecture_title');
         const titleValue = titleElement.options[titleElement.selectedIndex].value; 
         
-        if (!nameValue || !titleValue) {
-            alert("基本情報をすべて入力してください。");
+        // 必須項目のチェックを強化 (nameとtitle以外もチェックしたい場合は追加)
+        const form = document.getElementById('surveyForm');
+        let isValid = true;
+        form.querySelectorAll('[required]').forEach(input => {
+            if (!input.value) {
+                isValid = false;
+            }
+            if (input.type === 'radio' && !form.querySelector(`input[name="${input.name}"]:checked`)) {
+                 isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            alert("必須項目（*マーク）をすべて入力してください。");
             return;
         }
+
 
         // フォームの内容をプレーンテキストとして整形
         const emailBody = formatRecordContent(nameValue, titleValue);
@@ -200,7 +344,19 @@
         const titleElement = document.getElementById('lecture_title');
         const titleValue = titleElement.options[titleElement.selectedIndex].value; 
         
-        if (!nameValue || !titleValue) {
+         // 必須項目のチェック (copyAndOpenMailと同じロジック)
+        const form = document.getElementById('surveyForm');
+        let isValid = true;
+        form.querySelectorAll('[required]').forEach(input => {
+            if (!input.value) {
+                isValid = false;
+            }
+            if (input.type === 'radio' && !form.querySelector(`input[name="${input.name}"]:checked`)) {
+                 isValid = false;
+            }
+        });
+
+        if (!isValid) {
             alert("基本情報をすべて入力してください。");
             return;
         }
@@ -218,13 +374,14 @@
             let htmlValue = value;
             if (displayKey.includes('満足度') || displayKey.includes('評価')) {
                 htmlValue += "点 (5点満点)";
-                htmlContent += '<div><strong>' + formattedKey + '</strong><p>' + htmlValue + '</p></div>';
+                htmlContent += '<div style="margin-bottom: 10px;"><strong>' + formattedKey + '</strong><p style="margin: 5px 0 0 0;">' + htmlValue + '</p></div>';
             } else if (displayKey.includes('振り返り') || displayKey.includes('実践したいこと') || displayKey.includes('ご意見')) {
-                htmlContent += '<div class="page-break-inside">'; 
-                htmlContent += '<strong>' + formattedKey + '</strong><p>' + htmlValue.replace(/\n/g, '<br>') + '</p>';
+                // 長文項目は印刷時に区切りを付ける
+                htmlContent += '<div class="page-break-inside" style="margin-bottom: 20px;">'; 
+                htmlContent += '<strong>' + formattedKey + '</strong><p style="white-space: pre-wrap; margin: 5px 0 0 0;">' + htmlValue + '</p>'; // pre-wrapで改行を反映
                 htmlContent += '</div>';
             } else {
-                htmlContent += '<div><strong>' + formattedKey + '</strong><p>' + htmlValue + '</p></div>';
+                htmlContent += '<div style="margin-bottom: 10px;"><strong>' + formattedKey + '</strong><p style="margin: 5px 0 0 0;">' + htmlValue + '</p></div>';
             }
         }
         
@@ -232,10 +389,12 @@
         printWindow.document.write('<html><head><title>第5期Z式プロドラ横乗りインストラクター養成講座 受講記録：' + nameValue + '</title>');
         
         printWindow.document.write('<style>');
-        printWindow.document.write('body { font-family: Meiryo, sans-serif; padding: 20px; font-size: 11pt; }');
+        printWindow.document.write('body { font-family: Meiryo, sans-serif; padding: 20px; font-size: 11pt; line-height: 1.5; }');
+        printWindow.document.write('h1 { font-size: 14pt; border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 15px; }');
+        printWindow.document.write('strong { display: block; margin-top: 10px; font-size: 10pt; }');
+        printWindow.document.write('p { font-size: 11pt; margin-top: 5px; }');
         printWindow.document.write('@media print {');
         printWindow.document.write('.page-break-inside { page-break-inside: avoid; }'); 
-        printWindow.document.write('p { word-wrap: break-word; }');
         printWindow.document.write('}');
         printWindow.document.write('</style>');
         
