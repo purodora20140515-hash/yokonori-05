@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>第5期Z式プロドラ横乗りインストラクター養成講座 受講記録</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #007bff; border-bottom: 3px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #333; }
+        .question-group { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        label::after { content: " *"; color: red; } 
+        input[type="text"], input[type="email"], input[type="date"], textarea, select { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .rating label { font-weight: normal; margin-right: 15px; display: inline-block; }
+        .submit-btn, .print-btn { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-right: 10px; }
+        
+        .submit-btn { background-color: #f39c12; color: white; } 
+        .submit-btn:hover { background-color: #e67e22; }
+        .print-btn { background-color: #007bff; color: white; } 
+        .print-btn:hover { background-color: #0056b3; }
+        
+        .alert { background-color: #fff3cd; border-left: 6px solid #ffc107; padding: 10px; margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>第5期Z式プロドラ横乗りインストラクター養成講座 受講記録</h1>
+    <p>受講お疲れ様でした。受講記録の提出をお願いいたします。</p>
+
+    <form id="surveyForm" onsubmit="return false;" method="post"> 
+        
+        <h2>基本情報</h2>
+        <div class="question-group">
+            <label for="date">記入日:</label>
+            <input type="date" id="date" name="1_記入日" required>
+        </div>
+        <div class="question-group">
+            <label for="company">会社名:</label>
+            <input type="text" id="company" name="2_会社名" required>
+        </div>
+        <div class="question-group">
+            <label for="name">氏名:</label>
+            <input type="text" id="name" name="3_氏名" required>
+        </div>
+        
+        <div class="question-group">
+            <label for="lecture_title">今回の講義タイトル（件名に含めます）:</label>
+            <select id="lecture_title" name="講義タイトル" required>
+                <option value="" disabled selected>講義を選択してください</option>
+                <option value="【第1回】10/21 我が国の物流革新に向けた取組みの動向">【第1回】10/21 我が国の物流革新に向けた取組みの動向</option>
+                <option value="【第2回】10/21 道路交通法基礎">【第2回】10/21 道路交通法基礎</option>
+                <option value="【第3回】10/23 「これセーフ？」は、ほぼアウト！あなたは大丈夫？新人教育のハラスメント">【第3回】10/23 「これセーフ？」は、ほぼアウト！あなたは大丈夫？新人教育のハラスメント</option>
+                <option value="【第4回】10/23 健康管理">【第4回】10/23 健康管理</option>
+                <option value="【第5回】10/28 指導者としてのマナー＆モラル">【第5回】10/28 指導者としてのマナー＆モラル</option>
+                <option value="【第6回】10/28 品質とマナー＆モラル">【第6回】10/28 品質とマナー＆モラル</option>
+                <option value="【第7回】11/13 事例紹介①">【第7回】11/13 事例紹介①</option>
+                <option value="【第8回】11/13 事例紹介②">【第8回】11/13 事例紹介②</option>
+                <option value="【第9回】11/18 新人教育の目標設定とその意義">【第9回】11/18 新人教育の目標設定とその意義</option>
+                <option value="【第10回】11/18 指導者の心構えと役割">【第10回】11/18 指導者の心構えと役割</option>
+                <option value="【第11回】11/20 新人教育プラン作成">【第11回】11/20 新人教育プラン作成</option>
+                <option value="【第12回】11/20 安全確認・運転技術基礎">【第12回】11/20 安全確認・運転技術基礎</option>
+                <option value="【第13回】11/27 コーチングの基礎～問いかけて聴く">【第13回】11/27 コーチングの基礎～問いかけて聴く</option>
+                <option value="【第14回】11/27 質問の作り方とフィードバック">【第14回】11/27 質問の作り方とフィードバック</option>
+                <option value="【第15回】12/2 仕事も家庭もほめて解決">【第15回】12/2 仕事も家庭もほめて解決</option>
+                <option value="【第16回】12/2 インストラクターのためのアンガーマネジメント">【第16回】12/2 インストラクターのためのアンガーマネジメント</option>
+                <option value="【第17回】12/13 横乗り指導　実技編">【第17回】12/13 横乗り指導　実技編</option>
+                <option value="【第18回】12/16 ドライバータイプ別接し方とやる気の引きだし方">【第18回】12/16 ドライバータイプ別接し方とやる気の引きだし方</option>
+                <option value="【第19回】12/16 近道より安全選ぶプロ意識！">【第19回】12/16 近道より安全選ぶプロ意識！</option>
+                <option value="【第20回】12/18 コーチングの実践">【第20回】12/18 コーチングの実践</option>
+                <option value="【第21回】1/20 指導実績講座～マナー＆モラル編">【第21回】1/20 指導実績講座～マナー＆モラル編</option>
+                <option value="【第22回】1/20 協働のためのコミュニケーション ジェネレーションギャップの問いかけ">【第22回】1/20 協働のためのコミュニケーション ジェネレーションギャップの問いかけ</option>
+                <option value="【第23回】1/22 事例紹介③">【第23回】1/22 事例紹介③</option>
+                <option value="【第24回】1/22 防災・減災の取組">【第24回】1/22 防災・減災の取組</option>
+                <option value="【第25回】1/27 事故・ミスを防ぐためのコミュニケーション">【第25回】1/27 事故・ミスを防ぐためのコミュニケーション</option>
+                <option value="【第26回】1/27 事例紹介④">【第26回】1/27 事例紹介④</option>
+                <option value="【第27回】2/12 指導実践講座～運転スキルチェック">【第27回】2/12 指導実践講座～運転スキルチェック</option>
+                <option value="【第28回】2/12 事例紹介⑤">【第28回】2/12 事例紹介⑤</option>
+                <option value="【第29回】2/17 労務基礎知識">【第29回】2/17 労務基礎知識</option>
+                <option value="【第30回】2/17 トラックの構造と点検">【第30回】2/17 トラックの構造と点検</option>
+                <option value="【第31回】3/10 コスト管理">【第31回】3/10 コスト管理</option>
+                <option value="【第32回】3/10 安全確認・運転技術基礎">【第32回】3/10 安全確認・運転技術基礎</option>
+            </select>
+            </div>
+        
+        <h2>1. 講義内容の評価 (5段階評価: 5が最高)</h2>
+        <div class="question-group">
+            <p>今回の講義内容に満足していますか。</p>
+            <div class="rating">
+                <input type="radio" id="q4_5" name="4_満足度" value="5" required><label for="q4_5">5 (非常に満足)</label>
+                <input type="radio" id="q4_4" name="4_満足度" value="4"><label for="q4_4">4</label>
+                <input type="radio" id="q4_3" name="4_満足度" value="3"><label for="q4_3">3</label>
+                <input type="radio" id="q4_2" name="4_満足度" value="2"><label for="q4_2">2</label>
+                <input type="radio" id="q4_1" name="4_満足度" value="1"><label for="q4_1">1 (不満)</label>
+            </div>
+        </div>
+
+        <div class="question-group">
+            <p>講師の説明は分かりやすかったですか。</p>
+            <div class="rating">
+                <input type="radio" id="q5_5" name="5_講師評価" value="5" required><label for="q5_5">5 (非常に分かりやすい)</label>
+                <input type="radio" id="q5_4" name="5_講師評価" value="4"><label for="q5_4">4</label>
+                <input type="radio" id="q5_3" name="5_講師評価" value="3"><label for="q5_3">3</label>
+                <input type="radio" id="q5_2" name="5_講師評価" value="2"><label for="q5_2">2</label>
+                <input type="radio" id="q5_1" name="5_講師評価" value="1"><label for="q5_1">1 (分かりにくい)</label>
+            </div>
+        </div>
+        
+        
+        <h2>振り返り</h2>
+        <div class="question-group">
+            <label for="reflection_text">本日の講義全体を通して、特に心に残った点、新たに気づいたこと、感想などを具体的にお聞かせください。</label>
+            <textarea id="reflection_text" name="5_振り返り" rows="6" required></textarea>
+        </div>
+
+
+        <h2>2. 今後の行動・活用 (自由記述)</h2>
+        <div class="question-group">
+            <label for="action_text">今回の講義で学んだことを活かして、現場の指導で具体的に「実践したい」「変えていきたい」と思うことは何ですか。</label>
+            <textarea id="action_text" name="6_実践したいこと" rows="5" required></textarea>
+        </div>
+
+        <h2>3. 運営・その他 (自由記述)</h2>
+        <div class="question-group">
+            <label for="feedback">今回の講義全体へのご意見・ご要望、その他ご感想などがあればご自由にご記入ください。</label>
+            <textarea id="feedback" name="7_ご意見・ご要望" rows="4"></textarea>
+        </div>
+        
+        <button type="button" class="submit-btn" onclick="copyAndOpenMail()">メール本文をコピー＆送信</button>
+        <button type="button" class="print-btn" onclick="printRecord()">受講記録を出力</button>
+        
+        <div class="alert">
+            「メール本文をコピー＆送信」ボタンを押すと、本文が自動でコピーされ、メールが開きます。<br>
+            メールにて本文に貼り付け、そのまま送信してください。
+        </div>
+    </form>
+</div>
+
+<script>
+    // フォームの内容を整形して返す関数
+    function formatRecordContent(nameValue, titleValue) {
+        let content = "--- 第5期Z式プロドラ横乗りインストラクター養成講座 受講記録 ---\n\n";
+        
+        const formData = new FormData(document.getElementById('surveyForm'));
+        for (const pair of formData.entries()) {
+            const key = pair[0];
+            const value = pair[1];
+            
+            let displayKey = key.replace(/^[0-9]_/, '').replace(/_/g, ' ');
+            
+            let formattedValue = value;
+            if (displayKey.includes('満足度') || displayKey.includes('評価')) {
+                formattedValue += "点 (5点満点)";
+            }
+
+            // テキスト形式で整形
+            content += "【" + displayKey.trim() + "】\n" + formattedValue + "\n\n";
+        }
+        return content;
+    }
+
+    /**
+     * メール本文をコピーし、メールソフトを開く関数
+     */
+    function copyAndOpenMail() {
+        const nameValue = document.getElementById('name').value;
+        const titleElement = document.getElementById('lecture_title');
+        const titleValue = titleElement.options[titleElement.selectedIndex].value; 
+        
+        if (!nameValue || !titleValue) {
+            alert("基本情報をすべて入力してください。");
+            return;
+        }
+
+        // フォームの内容をプレーンテキストとして整形
+        const emailBody = formatRecordContent(nameValue, titleValue);
+        
+        // 1. クリップボードへのコピー
+        navigator.clipboard.writeText(emailBody).then(() => {
+            // 2. メールソフトの起動（宛先と件名のみ設定）
+            const subjectContent = "[受講記録：" + nameValue + "] " + titleValue;
+            const encodedSubject = encodeURIComponent(subjectContent);
+            const mailtoLink = "mailto:pro-dora@jtdo.jp?subject=" + encodedSubject;
+
+            alert("本文がクリップボードにコピーされました。\nOKを押すとメールソフトが開きますので、本文に貼り付けて送信してください。");
+            
+            window.location.href = mailtoLink;
+        }).catch(err => {
+            console.error('コピーに失敗しました:', err);
+            alert("コピーに失敗しました。お手数ですが、ブラウザをリロードし、再度お試しください。");
+        });
+    }
+
+    /**
+     * 受講記録を印刷（PDF保存）用に整形して表示する関数
+     */
+    function printRecord() {
+        const nameValue = document.getElementById('name').value;
+        const titleElement = document.getElementById('lecture_title');
+        const titleValue = titleElement.options[titleElement.selectedIndex].value; 
+        
+        if (!nameValue || !titleValue) {
+            alert("基本情報をすべて入力してください。");
+            return;
+        }
+
+        const formData = new FormData(document.getElementById('surveyForm'));
+        let htmlContent = '';
+        
+        for (const pair of formData.entries()) {
+            const key = pair[0];
+            const value = pair[1];
+            
+            let displayKey = key.replace(/^[0-9]_/, '').replace(/_/g, ' ');
+            const formattedKey = "【" + displayKey.trim() + "】";
+            
+            let htmlValue = value;
+            if (displayKey.includes('満足度') || displayKey.includes('評価')) {
+                htmlValue += "点 (5点満点)";
+                htmlContent += '<div><strong>' + formattedKey + '</strong><p>' + htmlValue + '</p></div>';
+            } else if (displayKey.includes('振り返り') || displayKey.includes('実践したいこと') || displayKey.includes('ご意見')) {
+                htmlContent += '<div class="page-break-inside">'; 
+                htmlContent += '<strong>' + formattedKey + '</strong><p>' + htmlValue.replace(/\n/g, '<br>') + '</p>';
+                htmlContent += '</div>';
+            } else {
+                htmlContent += '<div><strong>' + formattedKey + '</strong><p>' + htmlValue + '</p></div>';
+            }
+        }
+        
+        const printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>第5期Z式プロドラ横乗りインストラクター養成講座 受講記録：' + nameValue + '</title>');
+        
+        printWindow.document.write('<style>');
+        printWindow.document.write('body { font-family: Meiryo, sans-serif; padding: 20px; font-size: 11pt; }');
+        printWindow.document.write('@media print {');
+        printWindow.document.write('.page-break-inside { page-break-inside: avoid; }'); 
+        printWindow.document.write('p { word-wrap: break-word; }');
+        printWindow.document.write('}');
+        printWindow.document.write('</style>');
+        
+        printWindow.document.write('</head><body>');
+        printWindow.document.write('<h1>' + titleValue + ' 受講記録</h1>');
+        printWindow.document.write(htmlContent);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+
+        printWindow.print();
+    }
+</script>
+
+</body>
+</html>
