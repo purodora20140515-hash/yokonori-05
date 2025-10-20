@@ -239,31 +239,31 @@
         <div class="question-group">
              <p>講義の日程・時間は適切でしたか。</p>
             <div class="rating">
-                <input type="radio" id="q5_5" name="6_日程評価" value="5" required hidden><label for="q5_5">5 (適切)</label>
-                <input type="radio" id="q5_4" name="6_日程評価" value="4" hidden><label for="q5_4">4</label>
-                <input type="radio" id="q5_3" name="6_日程評価" value="3" hidden><label for="q5_3">3</label>
-                <input type="radio" id="q5_2" name="6_日程評価" value="2" hidden><label for="q5_2">2</label>
-                <input type="radio" id="q5_1" name="6_日程評価" value="1" hidden><label for="q5_1">1 (長すぎる・短すぎるなど)</label>
+                <input type="radio" id="q6_5" name="6_日程評価" value="5" required hidden><label for="q6_5">5 (適切)</label>
+                <input type="radio" id="q6_4" name="6_日程評価" value="4" hidden><label for="q6_4">4</label>
+                <input type="radio" id="q6_3" name="6_日程評価" value="3" hidden><label for="q6_3">3</label>
+                <input type="radio" id="q6_2" name="6_日程評価" value="2" hidden><label for="q6_2">2</label>
+                <input type="radio" id="q6_1" name="6_日程評価" value="1" hidden><label for="q6_1">1 (長すぎる・短すぎるなど)</label>
             </div>
         </div>
         
         <h2>振り返り</h2>
         <div class="question-group">
             <label for="reflection_text">本日の講義全体を通して、特に心に残った点、新たに気づいたこと、感想などを具体的にお聞かせください。</label>
-            <textarea id="reflection_text" name="5_振り返り" rows="8" required></textarea>
+            <textarea id="reflection_text" name="7_振り返り" rows="8" required></textarea>
         </div>
 
 
         <h2>2. 今後の行動・活用 (自由記述)</h2>
         <div class="question-group">
             <label for="action_text">今回の講義で学んだことを活かして、現場の指導で具体的に「実践したい」「変えていきたい」と思うことは何ですか。</label>
-            <textarea id="action_text" name="6_実践したいこと" rows="6" required></textarea>
+            <textarea id="action_text" name="8_実践したいこと" rows="6" required></textarea>
         </div>
 
         <h2>3. 運営・その他 (自由記述)</h2>
         <div class="question-group">
             <label for="feedback">今回の講義全体へのご意見・ご要望、その他ご感想などがあればご自由にご記入ください。</label>
-            <textarea id="feedback" name="7_ご意見・ご要望" rows="5"></textarea>
+            <textarea id="feedback" name="9_ご意見・ご要望" rows="5"></textarea>
         </div>
         
         <div class="button-group">
@@ -316,10 +316,21 @@
             if (!input.value) {
                 isValid = false;
             }
+            // ラジオボタンのチェックを正確に行う
             if (input.type === 'radio' && !form.querySelector(`input[name="${input.name}"]:checked`)) {
+                 // nameが重複している場合はこのチェックでは不十分になるが、修正後のHTMLではnameがユニークになったため正しく動作する
                  isValid = false;
             }
         });
+
+        // ラジオボタンの必須チェックを確実に
+        const radioNames = ['4_満足度', '5_講師評価', '6_日程評価']; // 修正後のラジオボタンのname
+        radioNames.forEach(name => {
+             if (!form.querySelector(`input[name="${name}"]:checked`)) {
+                isValid = false;
+            }
+        });
+        
 
         if (!isValid) {
             alert("必須項目（*マーク）をすべて入力してください。");
@@ -361,8 +372,16 @@
             if (!input.value) {
                 isValid = false;
             }
+            // ラジオボタンのチェックを正確に行う
             if (input.type === 'radio' && !form.querySelector(`input[name="${input.name}"]:checked`)) {
                  isValid = false;
+            }
+        });
+
+        const radioNames = ['4_満足度', '5_講師評価', '6_日程評価']; 
+        radioNames.forEach(name => {
+             if (!form.querySelector(`input[name="${name}"]:checked`)) {
+                isValid = false;
             }
         });
 
@@ -382,7 +401,7 @@
             const formattedKey = "【" + displayKey.trim() + "】";
             
             let htmlValue = value;
-            if (displayKey.includes('満足度') || displayKey.includes('評価')) {
+            if (displayKey.includes('満足度') || displayKey.includes('評価') || displayKey.includes('日程評価')) { // 日程評価を追加
                 htmlValue += "点 (5点満点)";
                 htmlContent += '<div style="margin-bottom: 10px;"><strong>' + formattedKey + '</strong><p style="margin: 5px 0 0 0;">' + htmlValue + '</p></div>';
             } else if (displayKey.includes('振り返り') || displayKey.includes('実践したいこと') || displayKey.includes('ご意見')) {
